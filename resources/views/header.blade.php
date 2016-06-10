@@ -6,10 +6,8 @@
    @include('partials.styling')
 </head>
 <body>
-@include('partials.sidebar')
 <!--Main Content Start -->
 <section class="content">
-    @include('partials.navigation')
     <div class="container">
         @yield('content')
     </div>

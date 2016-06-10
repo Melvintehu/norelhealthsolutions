@@ -3,7 +3,7 @@
 
 
 @section('content')
-    <h1>Patienten Overzicht </h1>
+    <h1>Medewerkers overzicht </h1>
     <hr>
 
     <div class="row">
@@ -27,12 +27,12 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Documentnummer</th>
-                                                        <th>Arts</th>
-                                                        <th>Bezoeken</th>
-                                                        <th>Kamers</th>
-                                                        <th>Afdelingen</th>
-                                                        <th>Aanwezig</th>
+                                                        <th>Voornaam</th>
+                                                        <th>Achternaam</th>
+                                                        <th>Job</th>
+                                                        <th>Startdatum</th>
+                                                        <th>Telefoonnummer</th>
+                                                        <th>Geboortedatum</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
