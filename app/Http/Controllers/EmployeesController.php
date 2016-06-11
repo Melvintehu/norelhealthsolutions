@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Employee;
 use App\Http\Requests;
 
 class EmployeesController extends Controller
@@ -15,8 +16,10 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-            
-        return view('pages.employees.overzicht');
+        
+        $employees = Employee::paginate(15);
+        
+        return view('pages.employees.overzicht', ['employees' => $employees]);
     }
 
     /**

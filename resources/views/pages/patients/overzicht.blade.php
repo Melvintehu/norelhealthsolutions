@@ -27,19 +27,23 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Documentnummer</th>
-                                                        <th>Arts</th>
-                                                        <th>Bezoeken</th>
-                                                        <th>Kamers</th>
-                                                        <th>Afdelingen</th>
-                                                        <th>Aanwezig</th>
+                                                        <th>Afdeling</th>
+                                                        <th>Voornaam</th>
+                                                        <th>Achternaam</th>
+                                                        <th>Email</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                
-
                                                     
-                                              
+                                                    @foreach ($employees as $employee)
+                                                        <tr>
+                                                            <td>{{ $employee->id }}</td>
+                                                            <td>{{ $employee->department_id }}</td>
+                                                             <td>{{ $employee->first_name }}</td>
+                                                              <td>{{ $employee->last_name }}</td>
+                                                               <td>{{ $employee->emailadres }}</td>
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>

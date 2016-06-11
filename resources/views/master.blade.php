@@ -1,3 +1,7 @@
+<?php
+	$user = Auth::user();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,6 +1,8 @@
 @extends('master')
 
-
+@section('title')
+    Medewerkers
+@stop
 
 @section('content')
     <h1>Medewerkers overzicht </h1>
@@ -8,38 +10,40 @@
 
     <div class="row">
         <div class="col-lg-12"> 
-           
             
             <hr>
             <div class="row">
-                    
                     <div class="col-md-12">
-
                         <div class="panel panel-default">
                            
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
-                                       
-                                        <div class="table-responsive">
-
+                                        
+                                        <div class="table-responsive">        
                                             <table class="table table-hover">
+                                                <tr>
+                                                    {!! $employees->render() !!}
+                                                </tr>
                                                 <thead>
                                                     <tr>
-                                                        <th>#</th>
+                                                        <th>#<span class='ion-arrow-down-b table-head'></span></th>
+                                                        <th>Afdeling</th>
                                                         <th>Voornaam</th>
                                                         <th>Achternaam</th>
-                                                        <th>Job</th>
-                                                        <th>Startdatum</th>
-                                                        <th>Telefoonnummer</th>
-                                                        <th>Geboortedatum</th>
+                                                        <th>Email</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                
-
-                                                    
-                                              
+                                                    @foreach ($employees as $employee)
+                                                        <tr>
+                                                            <td>{{ $employee->id }}</td>
+                                                            <td>{{ $employee->department_id }}</td>
+                                                             <td>{{ $employee->first_name }}</td>
+                                                              <td>{{ $employee->last_name }}</td>
+                                                               <td>{{ $employee->emailadres }}</td>
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
