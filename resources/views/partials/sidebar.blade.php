@@ -6,7 +6,7 @@
     <div class="logo">
          <a href="/cms" class="logo-expanded">
                     
-                    <span class="nav-label">NOREL - UMCG </span>
+                    <span class="nav-label"><img style='max-width:200px;' class='img-responsive' src='images/umcg.png' /></span>
                 </a>
     </div>
     <!-- / brand -->
@@ -24,7 +24,18 @@
 
                 </ul>
             </li>
+            <li class="has-submenu "><a href="#"><i class="ion-person-stalker"></i> <span
+                            class="nav-label">Medewerkers</span></a>
+                <ul class="list-styled">
+                    <li><strong><a href="#">Pagina's</a></strong></li>
+                    <li><a href="{{ URL::to("employees") }}"><i class="ion-grid"></i> Overzicht</a></li>
+                    
 
+                </ul>
+            </li>
+            <li><a href="{{ URL::to("/logout") }}"><i class="ion-home"></i> <span
+                            class="nav-label">Logout</span></a>
+            </li>
         </ul>
     </nav>
 
