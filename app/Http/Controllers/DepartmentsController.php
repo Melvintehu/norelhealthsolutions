@@ -16,4 +16,22 @@ class DepartmentsController extends Controller
             
         return view('pages.departments.overzicht', ['departments' => $departments]);
     }
+
+    public function add()
+    {
+    	return view('pages.departments.add');
+    }
+
+    public function add_department(Request $request)
+    {
+    	$name = $request->get('name');
+
+    	Department::insert(
+				['name' => $name]
+    		);
+
+    	$departments = Department::paginate(15);
+            
+    	return view('pages.departments.overzicht', ['departments' => $departments]);
+    }
 }

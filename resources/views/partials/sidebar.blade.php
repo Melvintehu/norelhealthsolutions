@@ -24,13 +24,12 @@
 
                 </ul>
             </li>
-            <li class="has-submenu "><a href="#"><i class="ion-home"></i> <span
+            <li class="has-submenu "><a href="#"><i class="ion-information"></i> <span
                             class="nav-label">Afdeling</span></a>
                 <ul class="list-styled">
                     <li><strong><a href="#">Pagina's</a></strong></li>
                     <li><a href="{{ URL::to("departments") }}"><i class="ion-home"></i> Overzicht</a></li>
-                    
-
+                    <li><a href="{{ URL::to("departments/add") }}"><i class="ion-plus-round"></i> Toevoegen</a></li>
                 </ul>
             </li>
             <li class="has-submenu "><a href="#"><i class="ion-person-stalker"></i> <span
