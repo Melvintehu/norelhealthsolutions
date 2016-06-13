@@ -17,5 +17,8 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css" rel="stylesheet">
 
 
+<!-- CMS Css -->
+<link href="{{ URL::asset('css/custom-umcg.css') }}" rel="stylesheet">
+
 <!--Animation css-->
-<link href="{{ URL::asset("css/animate.css") }}" rel="stylesheet">
+<link href="{{ URL::asset('css/animate.css') }}" rel="stylesheet">
