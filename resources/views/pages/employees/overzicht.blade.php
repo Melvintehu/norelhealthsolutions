@@ -17,6 +17,31 @@
                         <div class="panel panel-default">
                            
                             <div class="panel-body">
+                                <div class='row'>
+                                {!! Form::open(
+                                    array(
+                                        'action' => 'EmployeesController@search'
+                                        )
+                                    )
+                                !!}
+                                        <div class="col-md-3 col-sm-3 col-xs-3">  
+                                            <div class="form-group">
+                                                <input type='text' name='last' placeholder='Achternaam..' class='form-control' required/>
+                                            </div>
+                                        </div>
+                                        <div class='col-md-3 col-sm-3 col-xs-3'>
+                                            <div class="form-group">
+                                                <input type='submit' class='btn btn-primary' value='zoeken' />
+                                            </div>
+                                        </div>
+                                        <div class='col-md-3 col-sm-3 col-xs-3'>
+                                            <div class="form-group">
+                                                <a href="{{ URL::to("../employees") }}"><i class="ion-close"></i> Verwijder filter</a>
+                                            </div>
+                                        </div>
+                                    {!! Form::close() !!}
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         
@@ -32,6 +57,8 @@
                                                         <th>Voornaam</th>
                                                         <th>Achternaam</th>
                                                         <th>Email</th>
+                                                        <th>Volledig overzicht</th>
+                                                        <th>Aanpassen</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -42,6 +69,22 @@
                                                              <td>{{ $employee->first_name }}</td>
                                                               <td>{{ $employee->last_name }}</td>
                                                                <td>{{ $employee->emailadres }}</td>
+                                                               {!! Form::open(
+                                                                    array(
+                                                                        'action' => ['EmployeesController@employee', $employee->id]
+                                                                        )
+                                                                    )
+                                                                !!}
+                                                               <td><input type='submit' class='btn btn-primary' value='overzicht' /></td>
+                                                               {!! Form::close() !!}
+                                                              {!! Form::open(
+                                                                    array(
+                                                                        'action' => ['EmployeesController@edit', $employee]
+                                                                        )
+                                                                    )
+                                                                !!} 
+                                                                <td><input type='submit' class='btn btn-primary' value='aanpassen' /></td>
+                                                                {!! Form::close() !!}
                                                         </tr>
                                                     @endforeach
                                                 </tbody>

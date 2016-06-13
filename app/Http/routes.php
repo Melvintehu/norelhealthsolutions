@@ -19,9 +19,13 @@
 Route::auth();
 
 Route::group(['middleware' => ['auth']], function(){
+	Route::post('/employee', 'EmployeesController@search');
+	Route::post('/employee/{id}', 'EmployeesController@employee');
+
 	Route::get('/', 'PagesController@index');
-	Route::resource('/patients', 'PatientsController@index');
-	Route::resource('/employees', 'EmployeesController@index');
+	Route::resource('/patient', 'PatientsController');
+	Route::resource('/employees', 'EmployeesController');
+	Route::resource('/departments', 'DepartmentsController');
 	Route::get('/logout', function()
 	{
 		Auth::logout();

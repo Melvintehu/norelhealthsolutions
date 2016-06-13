@@ -4,9 +4,9 @@
 
     <!-- brand -->
     <div class="logo">
-         <a href="/cms" class="logo-expanded">
+         <a href="{{ URL::to("../") }}" class="logo-expanded">
                     
-                    <span class="nav-label"><img style='max-width:200px;' class='img-responsive' src='images/umcg.png' /></span>
+                    <span class="nav-label"><img style='max-width:200px;' class='img-responsive' src='../../../images/umcg.png' /></span>
                 </a>
     </div>
     <!-- / brand -->
@@ -20,6 +20,15 @@
                 <ul class="list-styled">
                     <li><strong><a href="#">Pagina's</a></strong></li>
                     <li><a href="{{ URL::to("patients") }}"><i class="ion-grid"></i> Overzicht</a></li>
+                    
+
+                </ul>
+            </li>
+            <li class="has-submenu "><a href="#"><i class="ion-home"></i> <span
+                            class="nav-label">Afdeling</span></a>
+                <ul class="list-styled">
+                    <li><strong><a href="#">Pagina's</a></strong></li>
+                    <li><a href="{{ URL::to("departments") }}"><i class="ion-home"></i> Overzicht</a></li>
                     
 
                 </ul>
