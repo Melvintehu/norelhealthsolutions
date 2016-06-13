@@ -19,9 +19,21 @@
 Route::auth();
 
 Route::group(['middleware' => ['auth']], function(){
+	
+
 	Route::get('/', 'PagesController@index');
 	Route::resource('/patients', 'PatientsController@index');
 	Route::resource('/employees', 'EmployeesController@index');
+
+	// posts requests
+	Route::post('/patient/visits', 'VisitsController@getVisits');
+	Route::post('/patient/medical-operations', 'MedicalOperationsController@getMedicalOperations');
+
+	
+
+	// get requests
+
+
 	Route::get('/logout', function()
 	{
 		Auth::logout();

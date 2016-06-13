@@ -3,13 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-    
 
-use App\Patient;    
 use App\Http\Requests;
 
-class PatientsController extends Controller
-{
+class VisitsController extends Controller
+{   
+
+    // custom functions
+    public function getVisits(){
+
+        
+        return view('pages.visits.overzicht');
+    }
+
+
+
+    // resource functions
+
     /**
      * Display a listing of the resource.
      *
@@ -17,12 +27,7 @@ class PatientsController extends Controller
      */
     public function index()
     {
-        
-        $data = [
-            $patients = Patient::all(),
-        ];
-        
-        return view('pages.patients.overzicht', compact('data'));
+        //
     }
 
     /**

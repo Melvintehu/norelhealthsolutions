@@ -26,24 +26,54 @@
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>#</th>
-                                                        <th>Afdeling</th>
-                                                        <th>Voornaam</th>
-                                                        <th>Achternaam</th>
-                                                        <th>Email</th>
+                                                        <th> Documentnummer </th>
+                                                        <th> Noodtelefoonnummer </th>
+                                                        <th> Naam </th>
+                                                        <th> Achternaam </th>
+                                                        <th> Geboortedatum </th>
+                                                        <th> Gewicht </th>
+                                                        <th> Bezoeken </th>
+                                                        <th> Medische ingrepen </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    
-                                                    @foreach ($employees as $employee)
-                                                        <tr>
-                                                            <td>{{ $employee->id }}</td>
-                                                            <td>{{ $employee->department_id }}</td>
-                                                             <td>{{ $employee->first_name }}</td>
-                                                              <td>{{ $employee->last_name }}</td>
-                                                               <td>{{ $employee->emailadres }}</td>
-                                                        </tr>
-                                                    @endforeach
+                                                    <tr>
+
+                                                        <td> 123 </td>
+                                                        <td> 0630063231 </td>
+                                                        <td> Melvin </td>
+                                                        <td> Tehubijuluw </td>
+                                                        <td> 12 - 02 - 1992 </td>
+                                                        <td> 80 kilo </td>
+                                                        <td> 
+                                                            {!! 
+                                                            Form::open(
+                                                                array(
+                                                                    'action' => 'VisitsController@getVisits'   
+                                                                )
+                                                            ) 
+                                                            !!}
+
+                                                                 <input type="submit" value="Bekijken" class="btn btn-primary" name="bekijken"> 
+
+
+                                                            {!! Form::close() !!}
+
+                                                        </td>
+                                                        <td>
+                                                            {!! Form::open(
+                                                                array(
+
+                                                                    'action' => 'MedicalOperationsController@getMedicalOperations'
+                                                                    )
+
+                                                                ) 
+                                                            !!}
+                                                                 <input type="submit" value="Bekijken" class="btn btn-primary" name="bekijken">
+                                                            {!! Form::close() !!}
+                                                        </td>
+
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
