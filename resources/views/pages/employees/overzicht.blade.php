@@ -1,32 +1,33 @@
 @extends('master')
 
-
+@section('title')
+    Medewerkers
+@stop
 
 @section('content')
-    <h1>Patienten Overzicht </h1>
+    <h1>Medewerkers overzicht </h1>
     <hr>
 
     <div class="row">
         <div class="col-lg-12"> 
-           
             
             <hr>
             <div class="row">
-                    
                     <div class="col-md-12">
-
                         <div class="panel panel-default">
                            
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
-                                       
-                                        <div class="table-responsive">
-
+                                        
+                                        <div class="table-responsive">        
                                             <table class="table table-hover">
+                                                <tr>
+                                                    {!! $employees->render() !!}
+                                                </tr>
                                                 <thead>
                                                     <tr>
-                                                        <th>#</th>
+                                                        <th>#<span class='ion-arrow-down-b table-head'></span></th>
                                                         <th>Afdeling</th>
                                                         <th>Voornaam</th>
                                                         <th>Achternaam</th>
@@ -34,7 +35,6 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    
                                                     @foreach ($employees as $employee)
                                                         <tr>
                                                             <td>{{ $employee->id }}</td>
