@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f9970cd39457a3bb5fbaf7d5bade1e53",
-    "content-hash": "8b1485987e7c5949da82435d403e52e8",
+    "hash": "bb362c359532ec3a3aa962be86be586f",
+    "content-hash": "c1fee875b36d11efecacc50d98bb74d9",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -249,6 +249,67 @@
             "time": "2015-04-20 18:58:01"
         },
         {
+            "name": "jenssegers/mongodb",
+            "version": "v3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jenssegers/laravel-mongodb.git",
+                "reference": "e1c12ac063eb0d5f4f10cc91f6e269b67cae4e80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jenssegers/laravel-mongodb/zipball/e1c12ac063eb0d5f4f10cc91f6e269b67cae4e80",
+                "reference": "e1c12ac063eb0d5f4f10cc91f6e269b67cae4e80",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": "^5.1",
+                "illuminate/database": "^5.1",
+                "illuminate/events": "^5.1",
+                "illuminate/support": "^5.1",
+                "mongodb/mongodb": "^1.0.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9",
+                "orchestra/testbench": "^3.1",
+                "phpunit/phpunit": "^4.0|^5.0",
+                "satooshi/php-coveralls": "^0.6"
+            },
+            "suggest": {
+                "jenssegers/mongodb-sentry": "Add Sentry support to Laravel-MongoDB",
+                "jenssegers/mongodb-session": "Add MongoDB session support to Laravel-MongoDB"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Jenssegers\\Mongodb": "src/",
+                    "Jenssegers\\Eloquent": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "https://jenssegers.com"
+                }
+            ],
+            "description": "A MongoDB based Eloquent model and Query builder for Laravel (Moloquent)",
+            "homepage": "https://github.com/jenssegers/laravel-mongodb",
+            "keywords": [
+                "database",
+                "eloquent",
+                "laravel",
+                "model",
+                "moloquent",
+                "mongo",
+                "mongodb"
+            ],
+            "time": "2016-03-04 21:34:41"
+        },
+        {
             "name": "jeremeamia/SuperClosure",
             "version": "2.2.0",
             "source": {
@@ -308,16 +369,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.36",
+            "version": "v5.2.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "236d7c0c5b67a2348ac7831391031d93000de3ab"
+                "reference": "bf199036b0e222a27e2133d841aee0d4238f804d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/236d7c0c5b67a2348ac7831391031d93000de3ab",
-                "reference": "236d7c0c5b67a2348ac7831391031d93000de3ab",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/bf199036b0e222a27e2133d841aee0d4238f804d",
+                "reference": "bf199036b0e222a27e2133d841aee0d4238f804d",
                 "shasum": ""
             },
             "require": {
@@ -433,7 +494,61 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-06-06 15:18:48"
+            "time": "2016-06-10 22:38:47"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "v5.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "3a312d39ffe37da0f57b602618b61fd07c1fcec5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/3a312d39ffe37da0f57b602618b61fd07c1fcec5",
+                "reference": "3a312d39ffe37da0f57b602618b61fd07c1fcec5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.2.*",
+                "illuminate/routing": "5.2.*",
+                "illuminate/session": "5.2.*",
+                "illuminate/support": "5.2.*",
+                "illuminate/view": "5.2.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "illuminate/database": "5.2.*",
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "http://laravelcollective.com",
+            "time": "2016-01-27 22:29:54"
         },
         {
             "name": "league/flysystem",
@@ -517,6 +632,61 @@
                 "storage"
             ],
             "time": "2016-06-03 19:11:39"
+        },
+        {
+            "name": "mongodb/mongodb",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mongodb/mongo-php-library.git",
+                "reference": "faf8a1d86b5c10684ef91fa6c81475b0c7f95240"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mongodb/mongo-php-library/zipball/faf8a1d86b5c10684ef91fa6c81475b0c7f95240",
+                "reference": "faf8a1d86b5c10684ef91fa6c81475b0c7f95240",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mongodb": "^1.1.0",
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MongoDB\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Mikola",
+                    "email": "jmikola@gmail.com"
+                },
+                {
+                    "name": "Hannes Magnusson",
+                    "email": "bjori@mongodb.com"
+                },
+                {
+                    "name": "Derick Rethans",
+                    "email": "github@derickrethans.nl"
+                }
+            ],
+            "description": "MongoDB driver library",
+            "homepage": "https://jira.mongodb.org/browse/PHPLIB",
+            "keywords": [
+                "database",
+                "driver",
+                "mongodb",
+                "persistence"
+            ],
+            "time": "2016-03-30 19:10:28"
         },
         {
             "name": "monolog/monolog",
@@ -2048,22 +2218,22 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.0.2",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "45ada3e3fd09789fbfbd6d65b3f0901f0030dc61"
+                "reference": "9270140b940ff02e58ec577c237274e92cd40cdd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/45ada3e3fd09789fbfbd6d65b3f0901f0030dc61",
-                "reference": "45ada3e3fd09789fbfbd6d65b3f0901f0030dc61",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/9270140b940ff02e58ec577c237274e92cd40cdd",
+                "reference": "9270140b940ff02e58ec577c237274e92cd40cdd",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5",
                 "phpdocumentor/reflection-common": "^1.0@dev",
-                "phpdocumentor/type-resolver": "^0.1.5",
+                "phpdocumentor/type-resolver": "^0.2.0",
                 "webmozart/assert": "^1.0"
             },
             "require-dev": {
@@ -2089,20 +2259,20 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2016-06-06 06:44:13"
+            "time": "2016-06-10 09:48:41"
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "0.1.8",
+            "version": "0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "9891754231e55d42f0d16988ffb799af39f31a12"
+                "reference": "b39c7a5b194f9ed7bd0dd345c751007a41862443"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/9891754231e55d42f0d16988ffb799af39f31a12",
-                "reference": "9891754231e55d42f0d16988ffb799af39f31a12",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/b39c7a5b194f9ed7bd0dd345c751007a41862443",
+                "reference": "b39c7a5b194f9ed7bd0dd345c751007a41862443",
                 "shasum": ""
             },
             "require": {
@@ -2111,7 +2281,7 @@
             },
             "require-dev": {
                 "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^5.2"
+                "phpunit/phpunit": "^5.2||^4.8.24"
             },
             "type": "library",
             "extra": {
@@ -2136,7 +2306,7 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2016-03-28 10:02:29"
+            "time": "2016-06-10 07:14:17"
         },
         {
             "name": "phpspec/prophecy",
