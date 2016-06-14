@@ -33,6 +33,15 @@
 
                 </ul>
             </li>
+            <li class="has-submenu "><a href="#"><i class="ion-person-stalker"></i> <span
+                            class="nav-label">Jobs</span></a>
+                <ul class="list-styled">
+                    
+                    <li><a href="{{ URL::to("job") }}"><i class="ion-grid"></i> Overzicht</a></li>
+                    <li><a href="{{ URL::to("job/create") }}"><i class="ion-grid"></i> Toevoegen</a></li>
+
+                </ul>
+            </li>
             <li><a href="{{ URL::to("/logout") }}"><i class="ion-home"></i> <span
                             class="nav-label">Logout</span></a>
             </li>

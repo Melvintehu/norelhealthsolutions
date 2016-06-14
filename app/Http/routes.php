@@ -22,8 +22,12 @@ Route::group(['middleware' => ['auth']], function(){
 	
 
 	Route::get('/', 'PagesController@index');
+
+	// resource controllers
 	Route::resource('/patients', 'PatientsController@index');
 	Route::resource('/employees', 'EmployeesController@index');
+	Route::resource('job', 'JobController');
+
 
 	// posts requests
 	Route::post('/patient/visits', 'VisitsController@getVisits');
