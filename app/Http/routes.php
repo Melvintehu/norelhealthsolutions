@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::get('/', 'PagesController@index');
 	Route::resource('/patients', 'PatientsController@index');
 	Route::resource('/employees', 'EmployeesController@index');
+	Route::resource('/visitations', 'PatientVisitsController');
 	Route::get('/logout', function()
 	{
 		Auth::logout();
