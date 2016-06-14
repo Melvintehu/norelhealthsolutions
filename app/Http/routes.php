@@ -23,8 +23,8 @@ Route::group(['middleware' => ['auth']], function(){
 	// resource controllers
 
 	Route::resource('job', 'JobController');
-	Route::resource('/patient', 'PatientsController');
-	Route::resource('/employees', 'EmployeesController');
+	Route::resource('patient', 'PatientsController');
+	Route::resource('employees', 'EmployeesController');
 	Route::resource('/departments', 'DepartmentsController');
 
 	// posts requests
