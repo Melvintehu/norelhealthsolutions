@@ -22,6 +22,7 @@
                                 <div class='row'>
                                 {!! Form::open(
                                     array(
+                                        'method' => 'POST',
                                         'action' => 'EmployeesController@search'
                                         )
                                     )
@@ -38,7 +39,7 @@
                                         </div>
                                         <div class='col-md-3 col-sm-3 col-xs-3'>
                                             <div class="form-group">
-                                                <a href="{{ URL::to("../employees") }}"><i class="ion-close"></i> Verwijder filter</a>
+                                                <a href="{{ URL::to("../employee") }}"><i class="ion-close"></i> Verwijder filter</a>
                                             </div>
                                         </div>
                                     {!! Form::close() !!}
@@ -74,7 +75,8 @@
                                                                <td>{{ $employee->emailadres }}</td>
                                                                {!! Form::open(
                                                                     array(
-                                                                        'action' => ['EmployeesController@employee', $employee->id]
+                                                                        'method' => 'GET',
+                                                                        'action' => ['EmployeesController@show', $employee->id]
                                                                         )
                                                                     )
                                                                 !!}
@@ -82,6 +84,7 @@
                                                                {!! Form::close() !!}
                                                               {!! Form::open(
                                                                     array(
+                                                                        'method' => 'GET',
                                                                         'action' => ['EmployeesController@edit', $employee]
                                                                         )
                                                                     )
