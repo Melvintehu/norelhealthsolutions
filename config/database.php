@@ -44,7 +44,21 @@ return [
     |
     */
 
+
+
     'connections' => [
+
+        'mongodb' => [
+            'driver' => 'mongodb',
+            'host' => env('NOSQL_HOST', 'localhost'),
+            'port' => env('NOSQL_PORT', '27017'),
+            'database' => env('NOSQL_DATABASE', 'epd'),
+            'username' => env('NOSQL_USERNAME', 'admin'),
+            'password' => env('NOSQL_PASSWORD', ''),
+            'options' => [
+                'db' => 'admin' // sets the authentication database required by mongo 3
+            ]
+        ],
 
         'sqlite' => [
             'driver' => 'sqlite',
