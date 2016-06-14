@@ -1,6 +1,7 @@
 /vendor
 /node_modules
 /public/storage
+/data/epd/journal
 Homestead.yaml
 Homestead.json
 .env
