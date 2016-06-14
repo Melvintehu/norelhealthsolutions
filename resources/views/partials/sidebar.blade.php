@@ -19,7 +19,7 @@
                             class="nav-label">Patienten</span></a>
                 <ul class="list-styled">
                     <li><strong><a href="#">Pagina's</a></strong></li>
-                    <li><a href="{{ URL::to("patients") }}"><i class="ion-grid"></i> Overzicht</a></li>
+                    <li><a href="{{ URL::to("patient") }}"><i class="ion-grid"></i> Overzicht</a></li>
                     
 
                 </ul>
@@ -38,6 +38,15 @@
                     <li><strong><a href="#">Pagina's</a></strong></li>
                     <li><a href="{{ URL::to("employee") }}"><i class="ion-grid"></i> Overzicht</a></li>
                     
+
+                </ul>
+            </li>
+            <li class="has-submenu "><a href="#"><i class="ion-person-stalker"></i> <span
+                            class="nav-label">Jobs</span></a>
+                <ul class="list-styled">
+                    
+                    <li><a href="{{ URL::to("job") }}"><i class="ion-grid"></i> Overzicht</a></li>
+                    <li><a href="{{ URL::to("job/create") }}"><i class="ion-grid"></i> Toevoegen</a></li>
 
                 </ul>
             </li>
