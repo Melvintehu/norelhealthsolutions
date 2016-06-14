@@ -37,7 +37,13 @@ class EmployeesController extends Controller
         return view('pages.employees.overzicht', ['employees' => $employees]);
     }
 
-    public function employee($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
         $employee = Employee::findOrFail($id);
 
@@ -65,16 +71,7 @@ class EmployeesController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.

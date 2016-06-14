@@ -25,7 +25,8 @@
                                             <div>
                                                 {!! Form::open(
                                                     array(
-                                                        'action' => 'DepartmentsController@add_department'
+                                                        'method' => 'POST',
+                                                        'action' => 'DepartmentsController@store'
                                                         )
                                                     )
                                                 !!}

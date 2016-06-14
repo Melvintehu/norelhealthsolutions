@@ -23,21 +23,18 @@ class DepartmentsController extends Controller
         return $department;
     }   
 
-    public function add()
+
+
+    public function store(Request $request)
     {
-    	return view('pages.departments.add');
+        Department::create($request->all());
+
+    	return redirect('/department');
     }
 
-    public function add_department(Request $request)
-    {
-    	$name = $request->get('name');
 
-    	Department::insert(
-				['name' => $name]
-    		);
+    public function create(){
 
-    	$departments = Department::paginate(15);
-            
-    	return view('pages.departments.overzicht', ['departments' => $departments]);
+        return view('pages.departments.add');
     }
 }
