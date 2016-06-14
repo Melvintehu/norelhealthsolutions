@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-    
 
-use App\Patient;    
+use App\Job;
 use App\Http\Requests;
 
-class PatientsController extends Controller
+class JobController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +15,15 @@ class PatientsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        
+    {   
+
+
         $data = [
-            $patients = Patient::all(),
+            'jobs' => Job::all(),
         ];
-        
-        return view('pages.patients.overzicht', compact('data'));
+
+
+        return view('pages.jobs.overzicht', compact('data'));
     }
 
     /**
@@ -32,7 +33,7 @@ class PatientsController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.jobs.create');
     }
 
     /**
@@ -43,7 +44,8 @@ class PatientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Job::create($request->all());
+         return redirect('/job');
     }
 
     /**
@@ -54,7 +56,12 @@ class PatientsController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        $data = [
+            'job' => Job::find($id),
+        ];
+        
+        return view('pages.jobs.update', compact('data'));
     }
 
     /**
@@ -77,7 +84,11 @@ class PatientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $job = Job::find($id);
+        $job->update($request->all());
+
+        return redirect('/job');
     }
 
     /**
@@ -88,6 +99,9 @@ class PatientsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $job = Job::find($id);
+        $job->delete();
+
+        return redirect('/job');
     }
 }
