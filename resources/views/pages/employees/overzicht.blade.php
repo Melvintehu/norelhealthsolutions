@@ -5,6 +5,8 @@
 @stop
 
 @section('content')
+
+
     <h1>Medewerkers overzicht </h1>
     <hr>
 
@@ -63,9 +65,10 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($employees as $employee)
+                                                       
                                                         <tr>
                                                             <td>{{ $employee->id }}</td>
-                                                            <td>{{ $employee->department_id }}</td>
+                                                            <td>{{ $employee->department->name }}</td>
                                                              <td>{{ $employee->first_name }}</td>
                                                               <td>{{ $employee->last_name }}</td>
                                                                <td>{{ $employee->emailadres }}</td>

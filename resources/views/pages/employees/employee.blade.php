@@ -5,6 +5,8 @@
 @stop
 
 @section('content')
+
+
     <h1>{{ $employee->first_name }} {{ $employee->last_name }}</h1>
     <hr>
 
@@ -57,8 +59,30 @@
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <h2>Werkzaamheden</h2>
+                                        <div class="table-responsive">        
+                                            <table class="table table-hover">
+                                                <tr>
+                                                    {!! $job_history->render() !!}
+                                                </tr>
+                                                <thead>
+                                                    <tr>
+                                                        <th>#<span class='ion-arrow-down-b table-head'></span></th>
+                                                        <th>Baan</th>
+                                                        <th>Begindatum</th>
+                                                        <th>Einddatum</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
 
-                                        GESCHIEDENIS PER ROW HIER
+                                        
+                                        @foreach ($job_history as $job)
+                                            <td>{{ $job->employee_id }}</td>
+                                            <td>{{ $job->job_Id }}</td>
+                                            <td>{{ $job->date_start }}</td>
+                                            <td>{{ $job->date_end }}</td>
+                                        @endforeach
+
                                     </div>
                                 </div>
                             </div>

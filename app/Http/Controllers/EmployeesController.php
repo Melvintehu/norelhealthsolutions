@@ -22,13 +22,6 @@ class EmployeesController extends Controller
         return view('pages.employees.overzicht', ['employees' => $employees]);
     }
 
-    public function get_department($id)
-    {
-        $department = Department::findOrFail($id);
-
-        return $department;
-    }
-
     /**
      * Display a listing of the resource with param.
      *

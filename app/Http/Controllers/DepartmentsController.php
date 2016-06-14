@@ -17,6 +17,12 @@ class DepartmentsController extends Controller
         return view('pages.departments.overzicht', ['departments' => $departments]);
     }
 
+    public static function get_name_by_id($id)
+    {
+        $department = Department::find($id);
+        return $department;
+    }   
+
     public function add()
     {
     	return view('pages.departments.add');
