@@ -1,9 +1,14 @@
 /vendor
 /node_modules
 /public/storage
+/data/epd/journal
+/data/epd
 Homestead.yaml
 Homestead.json
 .env
 composer.lock
 env
 composer.lock
+
+env
+
