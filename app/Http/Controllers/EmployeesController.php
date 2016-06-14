@@ -16,10 +16,32 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-        
+
         $employees = Employee::paginate(15);
-        
+
         return view('pages.employees.overzicht', ['employees' => $employees]);
+    }
+
+    /**
+     * Display a listing of the resource with param.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+    
+        $last = $request->get('last');
+
+        $employees = Employee::where('last_name', '=', $last)->paginate(15);
+
+        return view('pages.employees.overzicht', ['employees' => $employees]);
+    }
+
+    public function employee($id)
+    {
+        $employee = Employee::findOrFail($id);
+
+        return view('pages.employees.employee', ['employee' => $employee]);
     }
 
     /**
