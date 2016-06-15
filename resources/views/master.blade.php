@@ -1,5 +1,6 @@
 <?php
 	$user = Auth::user();
+
 ?>
 
 <!DOCTYPE html>

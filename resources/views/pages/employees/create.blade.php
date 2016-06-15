@@ -44,22 +44,30 @@
                                                         </tr>
                                                         <tr>
                                                            <td> 
-                                                                {!! Form::label('emailadres', ' Emailadres ') !!} 
-                                                                {!! Form::text('emailadres', null, ['class' => 'form-control']); !!}
-                                                           </td>
-
-                                                        </tr>
-                                                        <tr>
-                                                           <td> 
-                                                                {!! Form::label('username', ' Username ') !!} 
-                                                                {!! Form::text('username', null, ['class' => 'form-control']); !!}
+                                                                {!! Form::label('email', ' Emailadres ') !!} 
+                                                                {!! Form::text('email', null, ['class' => 'form-control']); !!}
                                                            </td>
 
                                                         </tr>
                                                         <tr>
                                                            <td> 
                                                                 {!! Form::label('password', ' Password ') !!} 
-                                                                {!! Form::password('password', null, ['class' => 'form-control']); !!}
+                                                                {!! Form::password('password', ['class' => 'form-control']); !!}
+                                                           </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                           <td> 
+                                                                {!! Form::label('department', ' Afdeling toewijzen') !!} 
+                                                                {!! Form::select('department_id', $data['departments'], null,['class' => 'form-control'] ) !!}
+                                                           </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                           <td> 
+                                                                {!! Form::label('job', ' Baan toewijzen') !!} 
+                                                                
+                                                                 {!! Form::select('job_id', $data['jobs'],null, ['class' => 'form-control'] ) !!}
                                                            </td>
 
                                                         </tr>

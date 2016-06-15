@@ -4,28 +4,6 @@
     Inloggen
 @stop
 
-<?php
-
-    use App\EpdPatient;
-
-    $epdPatient = new EpdPatient;
-    $epdPatient->name = 'John';
-    $epdPatient->age = 69;
-
-    //$epdPatient->procedure = [['Hartinfarct', '24-05-2006'] => 'Bypass aangelegd'];
-
-    $epdPatient->procedure = array(
-        "foo" => "bar",
-        42    => 24,
-        "multi" => array(
-             "dimensional" => array(
-                 "array" => "foo"
-             )
-        )
-    );
-    $epdPatient->save();
-
-?>
 @section('content')
     <div class="row">
         <div class="col-md-6 col-md-offset-2">

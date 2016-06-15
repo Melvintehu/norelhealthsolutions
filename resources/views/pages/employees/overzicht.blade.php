@@ -50,6 +50,7 @@
                                         
                                         <div class="table-responsive">        
                                             <table class="table table-hover">
+                                            @if(!empty($employees[0]))
                                                 <tr>
                                                     {!! $employees->render() !!}
                                                 </tr>
@@ -72,7 +73,7 @@
                                                             <td>{{ $employee->department->name }}</td>
                                                              <td>{{ $employee->first_name }}</td>
                                                               <td>{{ $employee->last_name }}</td>
-                                                               <td>{{ $employee->emailadres }}</td>
+                                                               <td>{{ $employee->user->email }}</td>
                                                                {!! Form::open(
                                                                     array(
                                                                         'method' => 'GET',
@@ -94,6 +95,11 @@
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
+                                                @else
+                                                    <tr>
+                                                        <td>Er zijn geen werknemers gevonden.</td>
+                                                    </tr>
+                                                @endif
                                             </table>
                                         </div>
                                        
