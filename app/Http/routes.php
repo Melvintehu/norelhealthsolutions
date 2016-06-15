@@ -19,23 +19,28 @@
 Route::auth();
 
 Route::group(['middleware' => ['auth']], function(){
-	Route::post('/employee', 'EmployeesController@search');
-	Route::post('/employee/{id}', 'EmployeesController@employee');
-	Route::post('/departments/add_department', 'DepartmentsController@add_department');
 
+	// resource controllers
+
+	Route::resource('job', 'JobController');
+	Route::resource('patient', 'PatientsController');
+	Route::resource('employee', 'EmployeesController');
+	Route::resource('department', 'DepartmentsController');
+
+	// posts requests
+	Route::post('/patient/visits', 'VisitsController@getVisits');
+	Route::post('/visitations/{id}', 'PatientVisitsController@store');
+	Route::post('/patient/medical-operations', 'MedicalOperationsController@getMedicalOperations');
+	Route::post('/employee', 'EmployeesController@search');
+
+	// get requests
 	Route::get('/', 'PagesController@index');
-	Route::get('/departments/add', 'DepartmentsController@add');
-	Route::resource('/patients', 'PatientsController');
-	Route::resource('/employees', 'EmployeesController');
-	Route::resource('/departments', 'DepartmentsController');
 	Route::get('/visitations', 'PatientVisitsController@index');
 	Route::get('/visitations/create/{id}', 'PatientVisitsController@create');
-	Route::get('/visitations/add-employee/{id}', 'PatientVisitsController@addEmployee');
-	Route::post('/visitations/{id}', 'PatientVisitsController@store');
+
 	Route::get('/logout', function()
 	{
 		Auth::logout();
 		return redirect('login');
 	});
-});
 

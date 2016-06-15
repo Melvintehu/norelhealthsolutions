@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Employee;
+use App\EmployeeJob;
+use App\Department;
+use App\Job;
 use App\Http\Requests;
 
 class EmployeesController extends Controller
@@ -37,7 +40,13 @@ class EmployeesController extends Controller
         return view('pages.employees.overzicht', ['employees' => $employees]);
     }
 
-    public function employee($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
         $employee = Employee::findOrFail($id);
 
@@ -51,7 +60,7 @@ class EmployeesController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.employees.create');
     }
 
     /**
@@ -65,16 +74,7 @@ class EmployeesController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -84,7 +84,13 @@ class EmployeesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'employee' => Employee::find($id),
+            'departments' => Department::lists('name', 'id'),
+            'jobs' => Job::lists('name', 'id'),
+        ];
+
+        return view('pages.employees.update', compact('data'));
     }
 
     /**
@@ -95,8 +101,36 @@ class EmployeesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+
+        $employeeOld = Employee::find($id);
+        $jobs = $employeeOld->jobs;
+        $job_id = $request->get('job_id');
+        if(count($jobs) == 0){
+            
+            $employeeOld->jobs()->attach($job_id, ['date_start' => date('Y-m-d h:i:s', time()) ]);
+        }
+
+        // Als de job aangepast wordt end_date vandehuidige job op de huidige datetime.
+        foreach($jobs as $job){
+            if($job->pivot->date_end == "0000-00-00 00:00:00" && $job->pivot->job_id != $job_id){
+                date_default_timezone_set('Europe/Amsterdam');
+                $job->pivot->date_end = date('Y-m-d h:i:s', time());
+                $job->pivot->save(); 
+            
+                // de nieuwe baan opslaan
+                $employeeOld->jobs()->attach($job_id, ['date_start' => date('Y-m-d h:i:s', time()) ]);
+
+            }
+           
+        }
+
+        // department_id in Employee aanpassen
+        $employeeOld->update($request->all());
+        
+
+
+        return redirect('/employee');
     }
 
     /**
