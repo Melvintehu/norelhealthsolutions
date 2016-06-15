@@ -6,6 +6,7 @@
 		<tr>
 			@foreach($visitations as $visitation)
 				{{ $visitation }}
+				<br>
 			@endforeach
 		</tr>
 	</table>

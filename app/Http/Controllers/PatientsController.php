@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Patient;
 
 use App\Http\Requests;
 
@@ -15,8 +16,9 @@ class PatientsController extends Controller
      */
     public function index()
     {
-            
-        return view('pages.patients.overzicht');
+        $patients = Patient::get();
+
+        return view('pages.patients.overzicht', ['patients' => $patients]);
     }
 
     /**

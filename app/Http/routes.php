@@ -25,10 +25,13 @@ Route::group(['middleware' => ['auth']], function(){
 
 	Route::get('/', 'PagesController@index');
 	Route::get('/departments/add', 'DepartmentsController@add');
-	Route::resource('/patient', 'PatientsController');
+	Route::resource('/patients', 'PatientsController');
 	Route::resource('/employees', 'EmployeesController');
 	Route::resource('/departments', 'DepartmentsController');
-	Route::resource('/visitations', 'PatientVisitsController');
+	Route::get('/visitations', 'PatientVisitsController@index');
+	Route::get('/visitations/create/{id}', 'PatientVisitsController@create');
+	Route::get('/visitations/add-employee/{id}', 'PatientVisitsController@addEmployee');
+	Route::post('/visitations/{id}', 'PatientVisitsController@store');
 	Route::get('/logout', function()
 	{
 		Auth::logout();

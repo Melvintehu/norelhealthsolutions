@@ -11,4 +11,8 @@ class PatientVisit extends Model
 	public function patient() {
     	return $this->belongsTo('App\Patient');
     }
+
+    public function employees() {
+    	return $this->hasMany('App\PatientVisitEmployee');
+    }
 }

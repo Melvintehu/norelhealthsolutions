@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\PatientVisitRequest;
+use App\Employee;
 use App\PatientVisit;
 use App\Patient;
 use DB;
@@ -17,17 +18,22 @@ class PatientVisitsController extends Controller
     	return view('pages.visitations.index', ['visitations' => $visitations]);
     }
 
-    public function create() {
-    	return view('pages.visitations.create');
+    public function create($id) {
+    	$employees = [];
+    	foreach (Employee::get() as $employee) {
+    		array_push($employees, $employee['id']);
+    	}
+
+    	return view('pages.visitations.create', ['id' => $id, 'employees' => $employees]);
     }
 
-    public function store(Request $request) {
+    public function store(PatientVisitRequest $request, $id) {
     	$input = $request->only(['description', 'date_arrival', 'date_discharged', 'emergency']);
-    	$input['patient_id'] = Patient::where('document_number', $request->input('documentNumber'))->pluck('id')->first();
+    	$input['patient_id'] = $id;
     	null !== $request->input('emergency') ? '' : $input['emergency'] = 0;
 
     	PatientVisit::create($input);
 
-    	return redirect('visitations');
+    	return redirect()->action('PatientVisitsController@index');
     }
 }
