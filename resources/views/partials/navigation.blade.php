@@ -16,7 +16,7 @@
         <li class="dropdown text-center">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
               <!--   <img alt="" src="../../img/avatar-2.jpg" class="img-circle profile-img thumb-sm"> -->
-                <span class="username">{{ $user->name }} ({{ $user->email }})</span>
+                <span class="username">({{ $user->email }})</span>
             </a>
         </li>
         <!-- user login dropdown end -->

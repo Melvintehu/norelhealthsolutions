@@ -44,10 +44,10 @@
                                                 <tbody>
                                                         <tr>
                                                             <td>{{ $employee->id }}</td>
-                                                            <td>{{ $employee->department_id }}</td>
+                                                            <td>{{ $employee->department->name }}</td>
                                                              <td>{{ $employee->first_name }}</td>
                                                               <td>{{ $employee->last_name }}</td>
-                                                               <td>{{ $employee->emailadres }}</td>
+                                                               <td>{{ $employee->user->email }}</td>
                                                                 {!! Form::open(
                                                                     array(
                                                                         'method' => 'GET',
@@ -69,6 +69,7 @@
                                         <h2>Werkzaamheden</h2>
                                         <div class="table-responsive">        
                                             <table class="table table-hover">
+                                            @if(!empty($employee->jobs[0]))
                                                 <tr>
                                                    
                                                 </tr>
@@ -81,9 +82,6 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($employee->jobs->reverse() as $job)
-
-                                                        
-
                                                     <tr>
                                                         <td>{{ $job->name }} </td>
                                                         <td>{{ $job->pivot->date_start }} </td>
@@ -95,6 +93,11 @@
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
+                                            @else
+                                                <tr>
+                                                    Geen werkzaamheden gevonden.
+                                                </tr>
+                                            @endif
                                             </table>
                                         </div>
 

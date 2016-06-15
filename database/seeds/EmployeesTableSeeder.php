@@ -18,13 +18,24 @@ class EmployeesTableSeeder extends Seeder
         foreach(range(1, 1000) as $index){
             $username = $faker->userName;
         	DB::table('employees')->insert([
-        			'department_id' => rand(1,2),
+        			'department_id' => rand(1,17),
+                    'user_id' => $index,
         			'first_name' => $faker->firstName,
         			'last_name' => $faker->lastName,
-        			'emailadres' => $username . "@umcg.nl",
-        			'username' => $username,
-        			'password' => $faker->password,
+        			// 'emailadres' => $username . "@umcg.nl",
+        			// 'username' => $username,
+        			// 'password' => $faker->password,
         		]);
         }
+
+            DB::table('employees')->insert([
+                'department_id' => 17,
+                'user_id' => 1001,
+                'first_name' => 'Eric',
+                'last_name' => 'Landheer',
+                // 'emailadres' => $username . "@umcg.nl",
+                // 'username' => $username,
+                // 'password' => $faker->password,
+             ]);
     }
 }

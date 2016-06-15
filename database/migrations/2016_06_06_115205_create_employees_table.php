@@ -18,15 +18,18 @@ class CreateEmployeesTable extends Migration
 
             // foreign keys
             $table->integer('department_id')->unsigned();
+            $table->integer('user_id')->unsigned();
 
             // strings
             $table->string('first_name', 50);
             $table->string('last_name', 50);
-            $table->string('emailadres', 50);
-            $table->string('username', 50);
-            $table->string('password', 50);
+
+            // $table->string('emailadres', 50);
+            // $table->string('username', 50);
+            // $table->string('password', 50);
 
             // constraints
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
             
             $table->timestamps();
