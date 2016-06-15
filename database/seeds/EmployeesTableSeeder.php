@@ -16,12 +16,13 @@ class EmployeesTableSeeder extends Seeder
         $faker = Faker::create();
 
         foreach(range(1, 1000) as $index){
+            $username = $faker->userName;
         	DB::table('employees')->insert([
         			'department_id' => rand(1,2),
         			'first_name' => $faker->firstName,
         			'last_name' => $faker->lastName,
-        			'emailadres' => $faker->companyEmail,
-        			'username' => $faker->userName,
+        			'emailadres' => $username . "@umcg.nl",
+        			'username' => $username,
         			'password' => $faker->password,
         		]);
         }

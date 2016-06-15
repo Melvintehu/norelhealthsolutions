@@ -13,4 +13,11 @@ class Job extends Model
 
     ];
 
+
+    public function employees(){
+		return $this->belongsToMany('App\Employee')
+					->withPivot('date_start', 'date_end')
+					->withTimeStamps();
+    }
+
 }
