@@ -37,6 +37,7 @@
                 <ul class="list-styled">
                     <li><strong><a href="#">Pagina's</a></strong></li>
                     <li><a href="{{ URL::to("employee") }}"><i class="ion-grid"></i> Overzicht</a></li>
+                    <li><a href="{{ URL::to("employee/create") }}"><i class="ion-grid"></i> Toevoegen</a></li>
                     
 
                 </ul>

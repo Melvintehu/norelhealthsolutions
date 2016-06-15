@@ -3,7 +3,7 @@
 
 
 @section('content')
-    <h1>Patienten Overzicht </h1>
+    <h1>Jobs Overzicht </h1>
     <hr>
 
     <div class="row">

@@ -76,7 +76,7 @@
                                                                {!! Form::open(
                                                                     array(
                                                                         'method' => 'GET',
-                                                                        'action' => ['EmployeesController@show', $employee->id]
+                                                                        'action' => ['EmployeesController@show', $employee]
                                                                         )
                                                                     )
                                                                 !!}
@@ -85,7 +85,7 @@
                                                               {!! Form::open(
                                                                     array(
                                                                         'method' => 'GET',
-                                                                        'action' => ['EmployeesController@edit', $employee]
+                                                                        'action' => ['EmployeesController@edit', $employee->id ]
                                                                         )
                                                                     )
                                                                 !!} 

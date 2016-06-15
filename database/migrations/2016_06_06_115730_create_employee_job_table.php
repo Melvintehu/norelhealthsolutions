@@ -13,7 +13,7 @@ class CreateEmployeeJobTable extends Migration
     public function up()
     {
         Schema::create('employee_job', function (Blueprint $table) {
-            $table->primary(array('employee_id', 'job_id'));
+            $table->primary(array('employee_id', 'job_id', 'date_start'));
 
             // foreign keys
             $table->integer('employee_id')->unsigned();

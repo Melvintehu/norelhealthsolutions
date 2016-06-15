@@ -19,6 +19,7 @@
 Route::auth();
 
 Route::group(['middleware' => ['auth']], function(){
+
 	// resource controllers
 
 	Route::resource('job', 'JobController');
