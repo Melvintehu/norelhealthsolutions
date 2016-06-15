@@ -43,4 +43,4 @@ Route::group(['middleware' => ['auth']], function(){
 		Auth::logout();
 		return redirect('login');
 	});
-
+});
