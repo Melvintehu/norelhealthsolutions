@@ -7,7 +7,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-6 col-md-offset-2">
-            <div class="panel panel-default" style="margin-top:100px;">
+            <div class="panel panel-default" style="margin-top:150px;">
                  <img class='img-responsive center-block' src='images/umcg.png' />
                 <div class="panel-body text-center">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">

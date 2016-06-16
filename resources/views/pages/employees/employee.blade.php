@@ -20,7 +20,7 @@
                            
                             <div class="panel-body">
                                 <div class='row'>
-                                        <div class='col-md-3 col-sm-3 col-xs-3'>
+                                        <div class='col-md-12 col-sm-12 col-xs-12'>
                                             <div class="form-group">
                                                 <a href="{{ URL::to("../employee") }}"><i class="ion-arrow-left-c"></i> Ga terug</a>
                                         </div>
@@ -30,9 +30,10 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         
                                         <div class="table-responsive">        
-                                            <table class="table table-hover">
+                                            <table class="table table">
                                                 <thead>
                                                     <tr>
+                                                        <th>Afbeelding</th>
                                                         <th>#<span class='ion-arrow-down-b table-head'></span></th>
                                                         <th>Afdeling</th>
                                                         <th>Voornaam</th>
@@ -43,6 +44,7 @@
                                                 </thead>
                                                 <tbody>
                                                         <tr>
+                                                            <td><img style='height: 200px;' class='img-responsive' src='{{ URL::to("images/doctor_male.png") }}'/></td>
                                                             <td>{{ $employee->id }}</td>
                                                             <td>{{ $employee->department->name }}</td>
                                                              <td>{{ $employee->first_name }}</td>
