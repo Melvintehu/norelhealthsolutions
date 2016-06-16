@@ -19,6 +19,7 @@
 Route::auth();
 
 Route::group(['middleware' => ['auth']], function(){
+
 	// resource controllers
 
 	Route::resource('job', 'JobController');
@@ -29,7 +30,7 @@ Route::group(['middleware' => ['auth']], function(){
 	// posts requests
 	Route::post('/patient/visits', 'VisitsController@getVisits');
 	Route::post('/patient/medical-operations', 'MedicalOperationsController@getMedicalOperations');
-	Route::post('/employee', 'EmployeesController@search');
+	Route::post('/employees', 'EmployeesController@search');
 
 	// get requests
 	Route::get('/', 'PagesController@index');
