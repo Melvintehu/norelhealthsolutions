@@ -23,8 +23,9 @@ class EmployeesController extends Controller
     {
 
         $employees = Employee::paginate(15);
+        $departments = Department::lists('name', 'id');
 
-        return view('pages.employees.overzicht', ['employees' => $employees]);
+        return view('pages.employees.overzicht', ['employees' => $employees, 'departments' => $departments]);
     }
 
     /**
@@ -36,10 +37,17 @@ class EmployeesController extends Controller
     {
     
         $last = $request->get('last');
+        $departmentsWhere = $request->get('department_id');
+        if($last != ''){
+            $employees = Employee::where('department_id', '=', $departmentsWhere)->where('last_name', '=', $last)->paginate(100);
+        }else{
+            $employees = Employee::where('department_id', '=', $departmentsWhere)->paginate(100);
+        }
 
-        $employees = Employee::where('last_name', '=', $last)->paginate(15);
+        $departments = Department::lists('name', 'id');
+        
 
-        return view('pages.employees.overzicht', ['employees' => $employees]);
+        return view('pages.employees.overzicht', ['employees' => $employees, 'departments' => $departments]);
     }
 
     /**
@@ -78,8 +86,6 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $user = User::create($request->all());
         $user->fill([
                 'email' => $request->email,
