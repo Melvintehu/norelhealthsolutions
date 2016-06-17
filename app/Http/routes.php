@@ -42,3 +42,6 @@ Route::group(['middleware' => ['auth']], function(){
 
 });
 
+Route::get('/digid', 'DigidController@index');
+Route::get('/tiroler', 'TirolerController@index');
+
