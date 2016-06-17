@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    @include('partials.styling')
 </head>
-<body>
+<body id='body-login'>
 <!--Main Content Start -->
 <section class="content">
     <div class="container">

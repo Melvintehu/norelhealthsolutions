@@ -29,7 +29,12 @@
                                 !!}
                                         <div class="col-md-3 col-sm-3 col-xs-3">  
                                             <div class="form-group">
-                                                <input type='text' name='last' placeholder='Achternaam..' class='form-control' required/>
+                                                <input type='text' name='last' placeholder='Achternaam..' class='form-control' />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-3">  
+                                            <div class="form-group">
+                                                {!! Form::select('department_id', $departments, null,['class' => 'form-control'] ) !!}
                                             </div>
                                         </div>
                                         <div class='col-md-3 col-sm-3 col-xs-3'>
@@ -61,8 +66,8 @@
                                                         <th>Voornaam</th>
                                                         <th>Achternaam</th>
                                                         <th>Email</th>
-                                                        <th>Volledig overzicht</th>
-                                                        <th>Aanpassen</th>
+                                                        <th></th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
