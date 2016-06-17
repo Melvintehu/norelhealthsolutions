@@ -35,7 +35,8 @@ Route::group(['middleware' => ['auth']], function(){
 
 	// get requests
 	Route::get('/', 'PagesController@index');
-	Route::get('/visitations', 'PatientVisitsController@index');
+	Route::get('/visitations/{id}', 'PatientVisitsController@index');
+	Route::get('/visitations/visitation/{id}', 'PatientVisitsController@show');
 	Route::get('/visitations/create/{id}', 'PatientVisitsController@create');
 
 	Route::get('/logout', function()

@@ -12,8 +12,8 @@ use App\Http\Requests;
 
 class PatientVisitsController extends Controller
 {
-    public function index() {
-    	$visitations = PatientVisit::get();
+    public function index($id) {
+    	$visitations = PatientVisit::where('patient_id', $id)->get();
 
     	return view('pages.visitations.index', ['visitations' => $visitations]);
     }
@@ -35,5 +35,13 @@ class PatientVisitsController extends Controller
     	PatientVisit::create($input);
 
     	return redirect()->action('PatientVisitsController@index');
+    }
+
+    public function show($id) {
+    	$visitation = PatientVisit::where('id', $id)
+    		->with('patient')
+    		->get();
+
+    	return view('pages.visitations.visitation', ['visitation' => $visitation]);
     }
 }

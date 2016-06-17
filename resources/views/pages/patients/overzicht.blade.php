@@ -50,7 +50,7 @@
                                                             {!! 
                                                             Form::open(
                                                                 array(
-                                                                    'action' => 'VisitsController@getVisits'   
+                                                                    'url' => 'visitations/1'   
                                                                 )
                                                             ) 
                                                             !!}
