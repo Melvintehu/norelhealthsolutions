@@ -29,7 +29,12 @@
                                 !!}
                                         <div class="col-md-3 col-sm-3 col-xs-3">  
                                             <div class="form-group">
-                                                <input type='text' name='last' placeholder='Achternaam..' class='form-control' required/>
+                                                <input type='text' name='last' placeholder='Achternaam..' class='form-control' />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-3">  
+                                            <div class="form-group">
+                                                {!! Form::select('department_id', $departments, null,['class' => 'form-control'] ) !!}
                                             </div>
                                         </div>
                                         <div class='col-md-3 col-sm-3 col-xs-3'>
@@ -50,6 +55,7 @@
                                         
                                         <div class="table-responsive">        
                                             <table class="table table-hover">
+                                            @if(!empty($employees[0]))
                                                 <tr>
                                                     {!! $employees->render() !!}
                                                 </tr>
@@ -60,8 +66,8 @@
                                                         <th>Voornaam</th>
                                                         <th>Achternaam</th>
                                                         <th>Email</th>
-                                                        <th>Volledig overzicht</th>
-                                                        <th>Aanpassen</th>
+                                                        <th></th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -72,11 +78,11 @@
                                                             <td>{{ $employee->department->name }}</td>
                                                              <td>{{ $employee->first_name }}</td>
                                                               <td>{{ $employee->last_name }}</td>
-                                                               <td>{{ $employee->emailadres }}</td>
+                                                               <td>{{ $employee->user->email }}</td>
                                                                {!! Form::open(
                                                                     array(
                                                                         'method' => 'GET',
-                                                                        'action' => ['EmployeesController@show', $employee->id]
+                                                                        'action' => ['EmployeesController@show', $employee]
                                                                         )
                                                                     )
                                                                 !!}
@@ -85,7 +91,7 @@
                                                               {!! Form::open(
                                                                     array(
                                                                         'method' => 'GET',
-                                                                        'action' => ['EmployeesController@edit', $employee]
+                                                                        'action' => ['EmployeesController@edit', $employee->id ]
                                                                         )
                                                                     )
                                                                 !!} 
@@ -94,6 +100,11 @@
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
+                                                @else
+                                                    <tr>
+                                                        <td>Er zijn geen werknemers gevonden.</td>
+                                                    </tr>
+                                                @endif
                                             </table>
                                         </div>
                                        

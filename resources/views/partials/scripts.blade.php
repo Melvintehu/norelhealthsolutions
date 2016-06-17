@@ -8,7 +8,9 @@
 <script src="{{ URL::asset("js/jquery.nicescroll.js")}}"  type="text/javascript") ></script>
 <script src="{{ URL::asset("assets/chat/moment-2.2.1.js") }}"></script>
 <script src="{{ URL::asset("js/jquery.app.js") }}"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js" type="text/javascript"></script>
+<script src="js/canvas.js" type="text/javascript"></script>
+<script src="js/employee_graph.js" type="text/javascript"></script>
 
 <!-- sweet alerts -->
 <script src="{{ URL::asset("assets/sweet-alert/sweet-alert.min.js") }}"></script>
