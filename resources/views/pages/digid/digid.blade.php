@@ -1,9 +1,8 @@
 @extends('header')
 
 @section('id')
-body-login
+digid-background
 @stop
-
 
 @section('title')
     Inloggen
@@ -12,8 +11,8 @@ body-login
 @section('content')
     <div class="row">
         <div class="col-md-6 col-md-offset-2">
-            <div class="panel panel-default" style="margin-top:150px;">
-                 <img class='img-responsive center-block' src='images/umcg.png' />
+            <div class="panel panel-default" style="margin-top:100px;">
+                 <img class='img-responsive center-block' style='max-height: 150px;' src='images/digid.png' />
                 <div class="panel-body text-center">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
@@ -48,9 +47,6 @@ body-login
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <a href='/digid' class="btn btn-success">
-                                    <i class="fa fa-btn fa-sign-in"></i> DigiD
-                                </a>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-sign-in"></i> Inloggen
                                 </button>
