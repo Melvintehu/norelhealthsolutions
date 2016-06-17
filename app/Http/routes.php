@@ -45,3 +45,6 @@ Route::group(['middleware' => ['auth']], function(){
 		return redirect('login');
 	});
 });
+
+Route::get('/digid', 'DigidController@index');
+Route::get('/tiroler', 'TirolerController@index');

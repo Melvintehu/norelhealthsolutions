@@ -10,7 +10,7 @@ var data = {
     labels: departmentSplit,
     datasets: [
         {
-            label: "Lijst van afdelingen",
+            label: "Aantal medewerkers per afdeling",
             data: employeeSplit,
             backgroundColor: [
                 "#e74c3c",
