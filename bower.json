@@ -1,0 +1,23 @@
+{
+  "name": "norelhealthsolutions",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Christiaan <Christiaanjansma@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Melvintehu/norelhealthsolutions",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.0.0"
+  },
+  "devDependencies": {
+    "pusher-websocket-iso": "pusher#^3.1.0"
+  }
+}

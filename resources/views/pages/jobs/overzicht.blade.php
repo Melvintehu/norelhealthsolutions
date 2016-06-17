@@ -3,6 +3,10 @@
 
 
 @section('content')
+
+<!-- Pusher -->
+<script src="https://js.pusher.com/3.1/pusher.min.js" type="text/javascript"></script>
+
     <h1>Jobs Overzicht </h1>
     <hr>
 
@@ -69,6 +73,21 @@
                                             </table>
                                         </div>
                                        
+                                        <script type="text/javascript">
+                                            Pusher.logToConsole = true;
+
+                                            var pusher = new Pusher('c55ddaae77712160de12', {
+                                              cluster: 'eu',
+                                              encrypted: true
+                                            });
+
+                                            var channel = pusher.subscribe('updates');
+                                            channel.bind('job_added', function(data) {
+                                                
+
+                                                alert(data.message);
+                                            });
+                                        </script>
                                     </div>
                                 </div>
                             </div>
@@ -81,3 +100,5 @@
         </div>
     </div>
 @stop
+
+

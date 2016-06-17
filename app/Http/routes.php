@@ -11,8 +11,18 @@
 |
 */
 
+// This should go in a service provider
+App::bind('Pusher', function($app) {
+	$keys = $app['config']-> get('services.pusher');
+	return new Pusher($keys['public'], $keys['secret'], $keys['app_id']);
+});
 
+Route::any('test', function() {
 
+	App::make('Pusher')->trigger('updates', 'job_added', ['message' => 'TEST']);
+	return 'Done';
+
+});
 
 
 
