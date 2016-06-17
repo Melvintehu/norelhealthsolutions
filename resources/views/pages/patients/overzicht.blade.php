@@ -47,19 +47,7 @@
                                                         <td> 12 - 02 - 1992 </td>
                                                         <td> 80 kilo </td>
                                                         <td> 
-                                                            {!! 
-                                                            Form::open(
-                                                                array(
-                                                                    'url' => 'visitations/1'   
-                                                                )
-                                                            ) 
-                                                            !!}
-
-                                                                 <input type="submit" value="Bekijken" class="btn btn-primary" name="bekijken"> 
-
-
-                                                            {!! Form::close() !!}
-
+                                                            <a href="visitations/<?php echo 1 ?>" class="btn btn-primary" role="button">Bekijken</a>
                                                         </td>
                                                         <td>
                                                             {!! Form::open(

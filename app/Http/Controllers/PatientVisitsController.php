@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PatientVisitRequest;
 use App\Employee;
 use App\PatientVisit;
+use App\EpdPatient;
 use App\Patient;
 use DB;
 
@@ -28,11 +29,15 @@ class PatientVisitsController extends Controller
     }
 
     public function store(PatientVisitRequest $request, $id) {
-    	$input = $request->only(['description', 'date_arrival', 'date_discharged', 'emergency']);
+    	$input = $request->only(['description', 'date_arrival', 'date_discharged', 'emergency', 'symptoms']);
     	$input['patient_id'] = $id;
     	null !== $request->input('emergency') ? '' : $input['emergency'] = 0;
 
-    	PatientVisit::create($input);
+        $patientVisit = PatientVisit::create($input);
+
+        $patient = EpdPatient::where('document_number', $patientVisit->patient()->document_number)->first();
+
+        $patient->visitation = [];
 
     	return redirect()->action('PatientVisitsController@index');
     }
