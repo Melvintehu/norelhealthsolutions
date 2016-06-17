@@ -20,7 +20,7 @@
                            
                             <div class="panel-body">
                                 <div class='row'>
-                                        <div class='col-md-3 col-sm-3 col-xs-3'>
+                                        <div class='col-md-12 col-sm-12 col-xs-12'>
                                             <div class="form-group">
                                                 <a href="{{ URL::to("../employee") }}"><i class="ion-arrow-left-c"></i> Ga terug</a>
                                         </div>
@@ -30,9 +30,10 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         
                                         <div class="table-responsive">        
-                                            <table class="table table-hover">
+                                            <table class="table table">
                                                 <thead>
                                                     <tr>
+                                                        <th>Afbeelding</th>
                                                         <th>#<span class='ion-arrow-down-b table-head'></span></th>
                                                         <th>Afdeling</th>
                                                         <th>Voornaam</th>
@@ -43,11 +44,12 @@
                                                 </thead>
                                                 <tbody>
                                                         <tr>
+                                                            <td><img style='height: 200px;' class='img-responsive' src='{{ URL::to("images/doctor_male.png") }}'/></td>
                                                             <td>{{ $employee->id }}</td>
-                                                            <td>{{ $employee->department_id }}</td>
+                                                            <td>{{ $employee->department->name }}</td>
                                                              <td>{{ $employee->first_name }}</td>
                                                               <td>{{ $employee->last_name }}</td>
-                                                               <td>{{ $employee->emailadres }}</td>
+                                                               <td>{{ $employee->user->email }}</td>
                                                                 {!! Form::open(
                                                                     array(
                                                                         'method' => 'GET',
@@ -69,6 +71,7 @@
                                         <h2>Werkzaamheden</h2>
                                         <div class="table-responsive">        
                                             <table class="table table-hover">
+                                            @if(!empty($employee->jobs[0]))
                                                 <tr>
                                                    
                                                 </tr>
@@ -81,9 +84,6 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($employee->jobs->reverse() as $job)
-
-                                                        
-
                                                     <tr>
                                                         <td>{{ $job->name }} </td>
                                                         <td>{{ $job->pivot->date_start }} </td>
@@ -95,6 +95,11 @@
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
+                                            @else
+                                                <tr>
+                                                    Geen werkzaamheden gevonden.
+                                                </tr>
+                                            @endif
                                             </table>
                                         </div>
 

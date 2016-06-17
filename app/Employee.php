@@ -8,13 +8,18 @@ class Employee extends Model
 {
 	
 	protected $fillable = [
+		'department_id',
 		'first_name',
 		'last_name',
-		'department_id'
+		'emailadres'
 	];
 
 	public function department(){
 		return $this->belongsTo('App\Department');
+	}
+
+	public function user(){
+		return $this->hasOne('App\User', 'id', 'user_id');
 	}
 
 	public function jobs()

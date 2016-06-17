@@ -2015,4 +2015,8 @@ aside.left-panel.collapsed .navigation ul li ul li a {
 .table-head {
   padding-left: 1em; }
 
+#body-login {
+  background: url(../images/wallpaper.jpg) no-repeat center center fixed !important;
+  background-size: cover !important; }
+
 /*# sourceMappingURL=cms.app.css.map */

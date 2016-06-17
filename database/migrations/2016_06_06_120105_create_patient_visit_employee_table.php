@@ -12,7 +12,7 @@ class CreatePatientVisitEmployeeTable extends Migration
      */
     public function up()
     {
-        Schema::create('patient_visis_employee', function (Blueprint $table) {
+        Schema::create('patient_visit_employee', function (Blueprint $table) {
             $table->primary(array('patient_visist_id', 'employee_id'));
 
             // foreign keys

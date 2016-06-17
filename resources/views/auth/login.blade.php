@@ -4,32 +4,10 @@
     Inloggen
 @stop
 
-<?php
-
-    use App\EpdPatient;
-
-    $epdPatient = new EpdPatient;
-    $epdPatient->name = 'John';
-    $epdPatient->age = 69;
-
-    //$epdPatient->procedure = [['Hartinfarct', '24-05-2006'] => 'Bypass aangelegd'];
-
-    $epdPatient->procedure = array(
-        "foo" => "bar",
-        42    => 24,
-        "multi" => array(
-             "dimensional" => array(
-                 "array" => "foo"
-             )
-        )
-    );
-    $epdPatient->save();
-
-?>
 @section('content')
     <div class="row">
         <div class="col-md-6 col-md-offset-2">
-            <div class="panel panel-default" style="margin-top:100px;">
+            <div class="panel panel-default" style="margin-top:150px;">
                  <img class='img-responsive center-block' src='images/umcg.png' />
                 <div class="panel-body text-center">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">

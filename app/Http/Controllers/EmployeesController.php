@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+date_default_timezone_set('Europe/Amsterdam');
 use Illuminate\Http\Request;
 
+use Crypt;
 use App\Employee;
 use App\EmployeeJob;
 use App\Department;
 use App\Job;
+use App\User;
 use App\Http\Requests;
 
 class EmployeesController extends Controller
@@ -21,8 +23,9 @@ class EmployeesController extends Controller
     {
 
         $employees = Employee::paginate(15);
+        $departments = Department::lists('name', 'id');
 
-        return view('pages.employees.overzicht', ['employees' => $employees]);
+        return view('pages.employees.overzicht', ['employees' => $employees, 'departments' => $departments]);
     }
 
     /**
@@ -34,10 +37,17 @@ class EmployeesController extends Controller
     {
     
         $last = $request->get('last');
+        $departmentsWhere = $request->get('department_id');
+        if($last != ''){
+            $employees = Employee::where('department_id', '=', $departmentsWhere)->where('last_name', '=', $last)->paginate(100);
+        }else{
+            $employees = Employee::where('department_id', '=', $departmentsWhere)->paginate(100);
+        }
 
-        $employees = Employee::where('last_name', '=', $last)->paginate(15);
+        $departments = Department::lists('name', 'id');
+        
 
-        return view('pages.employees.overzicht', ['employees' => $employees]);
+        return view('pages.employees.overzicht', ['employees' => $employees, 'departments' => $departments]);
     }
 
     /**
@@ -59,8 +69,13 @@ class EmployeesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('pages.employees.create');
+    {   
+        $data = [
+            'departments' => Department::lists('name','id'),
+            'jobs' => Job::lists('name','id'),
+        ];
+
+        return view('pages.employees.create',compact('data'));
     }
 
     /**
@@ -71,7 +86,23 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create($request->all());
+        $user->fill([
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+
+            ])->save();
+        $employee = new Employee();
+        $employee->department_id = $request->get('department_id');
+        $employee->first_name = $request->get('first_name');
+        $employee->last_name = $request->get('last_name');
+        $employee->user_id = $user->id;
+        $employee->save();
+        $job_id = $request->get('job_id');
+        $employee->jobs()->attach($job_id, ['date_start' => date('Y-m-d H:i:s', time()) ]);
+
+        
+        return redirect('/employee');
     }
 
 
@@ -108,18 +139,18 @@ class EmployeesController extends Controller
         $job_id = $request->get('job_id');
         if(count($jobs) == 0){
             
-            $employeeOld->jobs()->attach($job_id, ['date_start' => date('Y-m-d h:i:s', time()) ]);
+            $employeeOld->jobs()->attach($job_id, ['date_start' => date('Y-m-d H:i:s', time()) ]);
         }
 
         // Als de job aangepast wordt end_date vandehuidige job op de huidige datetime.
         foreach($jobs as $job){
             if($job->pivot->date_end == "0000-00-00 00:00:00" && $job->pivot->job_id != $job_id){
-                date_default_timezone_set('Europe/Amsterdam');
-                $job->pivot->date_end = date('Y-m-d h:i:s', time());
+                
+                $job->pivot->date_end = date('Y-m-d H:i:s', time());
                 $job->pivot->save(); 
             
                 // de nieuwe baan opslaan
-                $employeeOld->jobs()->attach($job_id, ['date_start' => date('Y-m-d h:i:s', time()) ]);
+                $employeeOld->jobs()->attach($job_id, ['date_start' => date('Y-m-d H:i:s', time()) ]);
 
             }
            
