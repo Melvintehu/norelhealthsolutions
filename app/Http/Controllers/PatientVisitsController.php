@@ -35,17 +35,17 @@ class PatientVisitsController extends Controller
 
         $patientVisit = PatientVisit::create($input);
 
-        $patient = EpdPatient::where('document_number', $patientVisit->patient()->document_number)->first();
+        // $patient = EpdPatient::where('document_number', $patientVisit->patient()->document_number)->first();
 
-        $patient->visitation = [];
+        // $patient->visitation = [];
 
-    	return redirect()->action('PatientVisitsController@index');
+    	return redirect()->action('PatientVisitsController@index', [$id]);
     }
 
     public function show($id) {
     	$visitation = PatientVisit::where('id', $id)
     		->with('patient')
-    		->get();
+    		->first();
 
     	return view('pages.visitations.visitation', ['visitation' => $visitation]);
     }

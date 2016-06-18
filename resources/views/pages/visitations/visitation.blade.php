@@ -18,10 +18,24 @@
                         <div class="panel panel-default">
                            
                             <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                       {{ $visitation }}
-                                    </div>
+                                <div class="table-responsive">
+                                    {{$visitation}}
+                                    <table class="table">
+                                        <tr>
+                                            <th>Omschrijving</th>
+                                            <th>Symptomen</th>
+                                            <th>Datum aankomst</th>
+                                            <th>Datum ontslagen</th>
+                                        </tr>
+                                        @if (isset($visitation))
+                                        <tr>
+                                            <td>{{$visitation->description}}</td>
+                                            <td>{{$visitation->symptoms}}</td>
+                                            <td>{{$visitation->date_arrival}}</td>
+                                            <td>{{$visitation->date_discharged}}</td>
+                                        </tr>
+                                        @endif
+                                    </table>
                                 </div>
                             </div>
                            
