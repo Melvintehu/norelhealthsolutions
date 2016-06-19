@@ -26,7 +26,7 @@
                                         <div class="table-responsive">
                                             {!! Form::open(['method' => 'POST', 'action' => 'EmployeesController@store' ]) !!}
 
-                                                <table class="table table-hover">
+                                                <table class="table">
                                                     <tbody>
                                                     
                                                         <tr>

@@ -66,4 +66,4 @@ $med_procedures = [
 
 ?>
 
-<iframe width="1500" height="690" autoPlay src="https://www.youtube.com/embed/E1IOO5wdPJk?autoplay=1&cc_load_policy=1" frameborder="0" allowfullscreen></iframe>
+<iframe width="1500" height="690" autoPlay src="https://www.youtube.com/embed/E1IOO5wdPJk?autoplay=1&cc_load_policy=1?autoreplay=1" frameborder="0" allowfullscreen></iframe>
