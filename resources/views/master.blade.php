@@ -9,6 +9,7 @@
     <title>@yield('title') || UMCG</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    @include('partials.styling')
+   @include('partials.scripts')
 </head>
 <body>
 @include('partials.sidebar')
@@ -23,7 +24,7 @@
 
 </section>
 <!-- Main Content Ends -->
-@include('partials.scripts')
+
 
 @yield('scripts')	
 

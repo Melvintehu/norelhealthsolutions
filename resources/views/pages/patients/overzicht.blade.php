@@ -47,7 +47,7 @@
                                                         <td> 12 - 02 - 1992 </td>
                                                         <td> 80 kilo </td>
                                                         <td> 
-                                                            <a href="visitations/<?php echo 1 ?>" class="btn btn-primary" role="button">Bekijken</a>
+                                                            <a href="patient/<?php echo 1 ?>/visitations" class="btn btn-primary" role="button">Bekijken</a>
                                                         </td>
                                                         <td>
                                                             {!! Form::open(

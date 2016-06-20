@@ -20,21 +20,12 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
-                                       
                                         <div class="table-responsive">
-
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr>
                                                         <td>
-                                                            {!! Form::open(
-                                                                array(
-                                                                    'url' => '/patients',
-                                                                    )
-                                                                ) 
-                                                            !!}
-                                                                 <input type="submit" value="Terug" class="btn btn-primary" name="bekijken">
-                                                            {!! Form::close() !!}
+                                                            <a class="btn btn-primary" role="button" href="/patient">Terug</a>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -53,14 +44,14 @@
                                                 	<tr>
                                                 		<td>{{ $visitation->date_arrival }}</td>
                                                 		<td>{{ $visitation->date_discharged }}</td>
-                                                		<td></td>
+                                                		<td>{{ $visitation->patient->document_number }}</td>
                                                 		<td>{{ $visitation->description }}</td>
                                                 		<td>{{ $visitation->symptoms }}</td>
                                                 		<td><a href="visitation/<?php echo $visitation->id ?>" class="btn btn-primary" role="button">View</a></td>
                                                 	</tr>
                                                 	@endforeach
                                                 	<tr>
-                                                		<td colspan="6"><a href="create/1">+ Nieuw bezoek TODO: patient id meegeven</a></td>
+                                                		<td colspan="6"><a href="visitations/create">+ Nieuw bezoek TODO: patient id meegeven</a></td>
                                                 	</tr>
                                                 </tbody>
                                             </table>

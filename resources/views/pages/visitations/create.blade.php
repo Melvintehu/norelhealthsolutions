@@ -20,12 +20,22 @@
 					{!! Form::textarea('symptoms', null, ['class' => 'form-control', 'placeholder' => 'Symptomen', 'rows' => '3']) !!}
 				</div>
 				<div class="form-group">
-					{!! Form::label('date_arrival', 'Datum aankomst') !!}
-					{!! Form::date('date_arrival', \Carbon\Carbon::now()->subDays(3), ['class' => 'form-control']) !!}
+					{!! Form::label('date_arrival', 'Tijd aankomst') !!}
+					<div class='input-group date datetimepicker'>
+	                    <input type='text' name='date_arrival' class="form-control" />
+	                    <span class="input-group-addon">
+	                        <span class="glyphicon glyphicon-calendar"></span>
+	                    </span>
+                	</div>
 				</div>
 				<div class="form-group">
-					{!! Form::label('date_discharged', 'Datum ontslag') !!}
-					{!! Form::date('date_discharged', \Carbon\Carbon::now(), ['class' => 'form-control']) !!}
+					{!! Form::label('date_discharged', 'Tijd ontslag') !!}
+					<div class='input-group date datetimepicker'>
+	                    <input type='text' name='date_discharged' class="form-control" />
+	                    <span class="input-group-addon">
+	                        <span class="glyphicon glyphicon-calendar"></span>
+	                    </span>
+                	</div>
 				</div>
 				<div class="form-group">
 					{!! Form::label('emergency', 'Noodgeval') !!}
@@ -37,5 +47,6 @@
 			</div>
 		</div>
 	</div>
-
+@include('partials.init-datetime-picker')
 @stop
+

@@ -22,3 +22,6 @@
 
 <!--Animation css-->
 <link href="{{ URL::asset('css/animate.css') }}" rel="stylesheet">
+
+<!-- Datetime picker -->
+<link href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" type="text/css" rel="stylesheet">
