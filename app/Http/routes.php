@@ -38,6 +38,8 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::get('/patient/{id}/visitations', 'PatientVisitsController@index');
 	Route::get('/patient/{patientId}/visitation/{visitId}', 'PatientVisitsController@show');
 	Route::get('/patient/{id}/visitations/create', 'PatientVisitsController@create');
+	Route::get('/patient/{id}/visitation/{visitId}/add-employee', 'PatientVisitsController@addEmployee');
+	Route::get('/patient/{id}/visitation/{visitId}/add-employee', 'PatientVisitsController@addEmployee');
 
 	Route::get('/logout', function()
 	{

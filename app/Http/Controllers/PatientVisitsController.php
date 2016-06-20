@@ -55,12 +55,18 @@ class PatientVisitsController extends Controller
 
     public function show($patientId, $visitId) {
     	$visitation = PatientVisit::where('id', $visitId)
-    		->with('patient')
+    		->with('patient', 'employees')
     		->first();
 
         $epdVisitations = EpdPatient::where('documentNumber', 1234)->first()->visitations()->get();
         $visitation->symptoms = isset($epdVisitations->where('date_arrival', $visitation->date_arrival)->first()->symptoms) ? $epdVisitations->where('date_arrival', $visitation->date_arrival)->first()->symptoms : '';
 
     	return view('pages.visitations.visitation', ['visitation' => $visitation]);
+    }
+
+    public function addEmployee($patientId, $visitId) {
+        $employees = Employee::get();
+
+        return view('pages.visitations.add-employee', ['employees' => $employees]);
     }
 }

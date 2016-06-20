@@ -12,11 +12,11 @@ class CreatePatientVisitEmployeeTable extends Migration
      */
     public function up()
     {
-        Schema::create('patient_visit_employee', function (Blueprint $table) {
-            $table->primary(array('patient_visist_id', 'employee_id'));
+        Schema::create('patient_visit_employees', function (Blueprint $table) {
+            $table->primary(array('patient_visit_id', 'employee_id'));
 
             // foreign keys
-            $table->integer('patient_visist_id')->unsigned();
+            $table->integer('patient_visit_id')->unsigned();
             $table->integer('employee_id')->unsigned();
 
             // datetimes
@@ -24,7 +24,7 @@ class CreatePatientVisitEmployeeTable extends Migration
             $table->dateTime('date_end');
 
             // constraints
-            $table->foreign('patient_visist_id')->references('id')->on('patient_visits')->onDelete('cascade');
+            $table->foreign('patient_visit_id')->references('id')->on('patient_visits')->onDelete('cascade');
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
 
             $table->timestamps();
@@ -38,6 +38,6 @@ class CreatePatientVisitEmployeeTable extends Migration
      */
     public function down()
     {
-        Schema::drop('patient_visis_employee');
+        Schema::drop('patient_visit_employees');
     }
 }

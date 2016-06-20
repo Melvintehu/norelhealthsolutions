@@ -47,6 +47,5 @@
 			</div>
 		</div>
 	</div>
-@include('partials.init-datetime-picker')
 @stop
 

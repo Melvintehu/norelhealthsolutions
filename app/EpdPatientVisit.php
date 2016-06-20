@@ -14,4 +14,8 @@ class EpdPatientVisit extends Eloquent
     	return $this->hasOne('App\EpdPatient');
     }
 
+    public function employees() {
+    	return $this->belongsToMany('App\Employee');
+    }
+
 }

@@ -6,9 +6,9 @@
 	<div class="row">
 		<div class="panel panel-default">
 			<div class="panel-body">
-				{!! Form::open() !!}
+				{!! Form::model(null, ['url' => ]) !!}
 					<div class="form-group">
-						{!! Form::label('employees', 'Medewerkers') !!}
+						{!! Form::label('employees', 'Medewerker') !!}
 						{!! Form::select('employees', $employees, null, ['class' => 'form-control', 'placeholder' => 'Kies een medewerker...']) !!}
 					</div>
 				{!! Form::close() !!}

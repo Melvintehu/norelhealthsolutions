@@ -24,3 +24,6 @@
 
 <!-- Vue.js -->
 <script src="{{ URL::asset("js/vue.js") }}"></script>
+
+<!-- Init -->
+<script src="{{ asset('js/init-datetime.js') }}" type="text/javascript"></script>
