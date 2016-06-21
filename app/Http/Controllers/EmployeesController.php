@@ -11,6 +11,7 @@ use App\Department;
 use App\Job;
 use App\User;
 use App\Http\Requests;
+use Illuminate\Pagination\Paginator;
 
 class EmployeesController extends Controller
 {
@@ -22,10 +23,15 @@ class EmployeesController extends Controller
     public function index()
     {
 
-        $employees = Employee::paginate(15);
-        $departments = Department::lists('name', 'id');
+        $data = [
+            'employees' => Employee::paginate(15),
+            'departments' => Department::lists('name', 'id'),
+            'department_id' => 0,
+        ];
 
-        return view('pages.employees.overzicht', ['employees' => $employees, 'departments' => $departments]);
+
+
+        return view('pages.employees.overzicht', compact('data'));
     }
 
     /**
@@ -37,17 +43,54 @@ class EmployeesController extends Controller
     {
     
         $last = $request->get('last');
-        $departmentsWhere = $request->get('department_id');
-        if($last != ''){
-            $employees = Employee::where('department_id', '=', $departmentsWhere)->where('last_name', '=', $last)->paginate(100);
-        }else{
-            $employees = Employee::where('department_id', '=', $departmentsWhere)->paginate(100);
+        $department_id = $request->get('department_id');
+
+
+        $fields = [
+            'last_name' => $request->get('last'),
+            'department_id' => $request->get('department_id'),
+        ];
+
+
+
+        $employees = [];
+        $counter = 0;
+        foreach ($fields as $key => $value) {
+            if($value == ""){
+                break;
+            }
+            $counter++;
         }
 
+        if($counter == count($fields)){
+            $employees = Employee::where($fields)->paginate(100);    
+        }else{            
+            foreach($fields as $key => $value){
+                if(count($employees) == 0){
+                    $employees = Employee::where($key, $value)->paginate(100);    
+                }else{
+                    $employees = $employees->merge(Employee::where($key, $value)->paginate(100));
+                }
+            }
+
+        }
+       
+
+        
         $departments = Department::lists('name', 'id');
         
 
-        return view('pages.employees.overzicht', ['employees' => $employees, 'departments' => $departments]);
+
+
+
+
+        $data = [
+            'employees' => $employees,
+            'departments' => $departments,
+            'department_id' => $department_id
+        ];
+
+        return view('pages.employees.overzicht', compact('data'));
     }
 
     /**

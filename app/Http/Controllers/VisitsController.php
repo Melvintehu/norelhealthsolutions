@@ -11,7 +11,7 @@ class VisitsController extends Controller
 
     // custom functions
     public function getVisits(){
-
+        
         
         return view('pages.visits.overzicht');
     }
