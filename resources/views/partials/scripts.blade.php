@@ -11,6 +11,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js" type="text/javascript"></script>
 <script src="js/canvas.js" type="text/javascript"></script>
 <script src="js/employee_graph.js" type="text/javascript"></script>
+<script src="{{ asset('js/moment-with-locales.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
 
 <!-- sweet alerts -->
 <script src="{{ URL::asset("assets/sweet-alert/sweet-alert.min.js") }}"></script>
@@ -22,3 +24,6 @@
 
 <!-- Vue.js -->
 <script src="{{ URL::asset("js/vue.js") }}"></script>
+
+<!-- Init -->
+<script src="{{ asset('js/init-datetime.js') }}" type="text/javascript"></script>

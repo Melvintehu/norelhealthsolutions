@@ -19,6 +19,9 @@ class EpdPatient extends Eloquent {
 
     ];
 
+    public function visitations() {
+    	return $this->hasMany('App\EpdPatientVisit');
+    }
 
     public function medicines(){
     	return $this->hasMany('App\EpdMedicine');

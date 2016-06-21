@@ -29,4 +29,11 @@ class Employee extends Model
 					->withTimeStamps();
 	}
 
+	public function patientVisits() {
+		return $this->belongsToMany('App\PatientVisit')
+					->withPivot('date_start')
+					->withPivot('date_end')
+					->withTimeStamps();
+	}
+
 }
