@@ -32,6 +32,8 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::post('/visitations/{id}', 'PatientVisitsController@store');
 	Route::post('/patient/medical-operations', 'MedicalOperationsController@getMedicalOperations');
 	Route::post('/employees', 'EmployeesController@search');
+	Route::post('/patients', 'PatientsController@search');
+
 
 	// get requests
 	Route::get('/', 'PagesController@index');

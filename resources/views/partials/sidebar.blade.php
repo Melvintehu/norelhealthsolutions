@@ -20,7 +20,6 @@
                 <ul class="list-styled">
                     <li><strong><a href="#">Pagina's</a></strong></li>
                     <li><a href="{{ URL::to("patient") }}"><i class="ion-grid"></i> Overzicht</a></li>
-                    
 
                 </ul>
             </li>
