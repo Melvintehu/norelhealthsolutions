@@ -34,7 +34,7 @@
                                         </div>
                                         <div class="col-md-3 col-sm-3 col-xs-3">  
                                             <div class="form-group">
-                                                {!! Form::select('department_id', $departments, null,['class' => 'form-control'] ) !!}
+                                                {!! Form::select('department_id', $data['departments'], $data['department_id'] ,['class' => 'form-control'] ) !!}
                                             </div>
                                         </div>
                                         <div class='col-md-3 col-sm-3 col-xs-3'>
@@ -55,9 +55,9 @@
                                         
                                         <div class="table-responsive">        
                                             <table class="table table-hover">
-                                            @if(!empty($employees[0]))
+                                            @if(!empty($data['employees']))
                                                 <tr>
-                                                    {!! $employees->render() !!}
+                                                    {!! $data['employees']->render() !!}
                                                 </tr>
                                                 <thead>
                                                     <tr>
@@ -71,7 +71,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($employees as $employee)
+                                                    @foreach ($data['employees'] as $employee)
                                                        
                                                         <tr>
                                                             <td>{{ $employee->id }}</td>
