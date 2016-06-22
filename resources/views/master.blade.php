@@ -9,6 +9,7 @@
     <title>@yield('title') || UMCG</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    @include('partials.styling')
+   
 </head>
 <body>
 @include('partials.sidebar')

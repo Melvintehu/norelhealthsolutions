@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function(){
 
 	// posts requests
 	Route::post('/patient/visits', 'VisitsController@getVisits');
+	Route::post('/visitations/{id}', 'PatientVisitsController@store');
 	Route::post('/patient/medical-operations', 'MedicalOperationsController@getMedicalOperations');
 	Route::post('/employees', 'EmployeesController@search');
 	Route::post('/patients', 'PatientsController@search');
@@ -36,11 +37,18 @@ Route::group(['middleware' => ['auth']], function(){
 
 	// get requests
 	Route::get('/', 'PagesController@index');
+	Route::get('/patient/{id}/visitations', 'PatientVisitsController@index');
+	Route::get('/patient/{patientId}/visitation/{visitId}', 'PatientVisitsController@show');
+	Route::get('/patient/{id}/visitations/create', 'PatientVisitsController@create');
+	Route::get('/patient/{id}/visitation/{visitId}/add-employee', 'PatientVisitsController@addEmployee');
+	Route::get('/patient/{id}/visitation/{visitId}/add-employee', 'PatientVisitsController@addEmployee');
+
 	Route::get('/logout', function()
 	{
 		Auth::logout();
 		return redirect('login');
 	});
-
 });
 
+Route::get('/digid', 'DigidController@index');
+Route::get('/tiroler', 'TirolerController@index');
